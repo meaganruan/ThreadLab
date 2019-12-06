@@ -1,0 +1,34 @@
+package cisc3115;
+
+public class ThreadLab {
+    public static void main(String args[]){
+        Runnable Fa = new PrintL("Fa", 100);
+        Runnable La = new PrintL("-La", 100);
+        Thread thread1 = new Thread(Fa);
+        Thread thread2 = new Thread(La);
+        thread1.start();
+        thread2.start();
+    }
+}
+    class PrintL implements Runnable{
+        private String lyrics; 
+        private int times;
+    
+public PrintL (String s, int n){
+lyrics=s;
+times=n;
+}
+@Override
+public void run(){
+    for (int i = 0; i < times; i++) {
+      System.out.print(lyrics);
+      try{
+          Thread.sleep(1000);
+      }
+      catch(Exception e){
+          
+      }
+      
+      }
+}
+    }
